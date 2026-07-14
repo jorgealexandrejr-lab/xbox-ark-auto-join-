@@ -36,7 +36,8 @@ Como esta extensão está hospedada de forma independente no GitHub, você preci
    - **Espera após X (segundos):** Tempo que o jogo leva para tentar conectar e exibir a mensagem de erro (recomendado: 4.0s).
    - **Espera após B (segundos):** Tempo que o jogo leva para fechar a janela de erro e voltar à lista (recomendado: 2.0s).
 5. Clique em **Iniciar** e a automação começará a rodar!
-6. **Parada de Emergência:** A qualquer momento, clique em **Parar** na interface ou pressione a tecla `ESC` ou `Espaço` no teclado para parar o loop instantaneamente.
+6. **Minimizar o Painel:** Clique no botão **`×`** no canto superior direito para ocultar a tela. Um botão flutuante com o ícone `🎮` aparecerá no canto. Clique nele ou aperte a tecla **`F2`** no seu teclado para mostrar/ocultar a interface a qualquer momento.
+7. **Parada de Emergência:** A qualquer momento, clique em **Parar** na interface ou pressione a tecla `ESC` ou `Espaço` no teclado para parar o loop instantaneamente.
 
 ---
 
@@ -72,7 +73,8 @@ Since this extension is independently hosted on GitHub, you need to load it usin
    - **Delay after X (seconds):** The time the game takes to attempt a connection and show the error message (recommended: 4.0s).
    - **Delay after B (seconds):** The time the game takes to close the error window and return to the list (recommended: 2.0s).
 5. Click **Iniciar** (Start) to begin!
-6. **Emergency Stop:** At any point, click **Parar** (Stop) on the UI or press the `ESC` or `Space` key on your keyboard to instantly stop the loop.
+6. **Minimize the Panel:** Click the **`×`** button in the top-right corner of the panel to hide it. A small controller button `🎮` will remain in the corner. Click it or press **`F2`** on your keyboard to toggle the panel visibility at any time.
+7. **Emergency Stop:** At any point, click **Parar** (Stop) on the UI or press the `ESC` or `Space` key on your keyboard to instantly stop the loop.
 
 ---
 
@@ -108,4 +110,5 @@ Como esta extensión está alojada de forma independiente en GitHub, debes carga
      - **Espera después de X (segundos):** El tiempo que tarda el juego en intentar conectarse y mostrar el mensaje de error (recomendado: 4.0s).
      - **Espera después de B (segundos):** El tiempo que tarda el juego en cerrar la ventana de error y regresar a la lista (recomendado: 2.0s).
 5. ¡Haz clic en **Iniciar** para comenzar!
-6. **Parada de emergencia:** En cualquier momento, haz clic en **Parar** en la interfaz o presiona la tecla `ESC` o `Espacio` en tu teclado para detener el bucle instantáneamente.
+6. **Minimizar el panel:** Haz clic en el botón **`×`** en la esquina superior derecha del panel para ocultarlo. Un pequeño botón de control `🎮` permanecerá en la esquina. Haz clic en él o presiona la tecla **`F2`** en tu teclado para mostrar/ocultar la interfaz en cualquier momento.
+7. **Parada de emergencia:** En cualquier momento, haz clic en **Parar** en la interfaz o presiona la tecla `ESC` o `Espacio` en tu teclado para detener el bucle instantáneamente.

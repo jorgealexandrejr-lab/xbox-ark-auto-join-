@@ -94,6 +94,44 @@
       border-color: rgba(16, 124, 16, 0.4);
       box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 124, 16, 0.15);
     }
+    #xbox-macro-launcher {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      width: 44px;
+      height: 44px;
+      background: rgba(18, 18, 22, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(16, 124, 16, 0.4);
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      cursor: pointer;
+      z-index: 9999999;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      user-select: none;
+    }
+    #xbox-macro-launcher:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(16, 124, 16, 0.6);
+      border-color: rgba(16, 124, 16, 0.8);
+    }
+    .xbox-close-btn {
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #64748b;
+      transition: color 0.2s;
+      line-height: 1;
+      padding: 0 4px;
+      user-select: none;
+    }
+    .xbox-close-btn:hover {
+      color: #ef4444;
+    }
     .xbox-header {
       display: flex;
       align-items: center;
@@ -270,9 +308,12 @@
     <div class="xbox-header" id="xbox-macro-header">
       <div class="xbox-title">
         <span class="xbox-logo-dot" id="xbox-status-dot"></span>
-        Xbox Server Auto-Join
+        Xbox - Ark Auto Join
       </div>
-      <div style="font-size: 0.75rem; color: #64748b;">Antigravity v1.2</div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span style="font-size: 0.75rem; color: #64748b;">v1.3</span>
+        <div id="xbox-btn-close" class="xbox-close-btn" title="Minimizar (F2)">×</div>
+      </div>
     </div>
     <div class="xbox-body">
       <div class="xbox-stat-row">
@@ -317,12 +358,20 @@
     </div>
   `;
 
+  const launcher = document.createElement('div');
+  launcher.id = 'xbox-macro-launcher';
+  launcher.innerHTML = '🎮';
+  launcher.title = 'Abrir Painel Auto-Join (F2)';
+
   function checkAndInject() {
     if (!document.getElementById('xbox-macro-style')) {
       document.head.appendChild(styleEl);
     }
     if (!document.getElementById('xbox-macro-panel')) {
       document.body.appendChild(panel);
+    }
+    if (!document.getElementById('xbox-macro-launcher')) {
+      document.body.appendChild(launcher);
     }
   }
 
@@ -475,12 +524,31 @@
     }
   }
 
+  function toggleVisibility() {
+    const isHidden = panel.style.display === 'none';
+    if (isHidden) {
+      panel.style.display = 'block';
+      launcher.style.display = 'none';
+    } else {
+      panel.style.display = 'none';
+      launcher.style.display = 'flex';
+    }
+  }
+
   btnToggle.addEventListener('click', () => {
     if (window.xboxMacroActive) stopMacro();
     else startMacro();
   });
 
+  document.getElementById('xbox-btn-close').addEventListener('click', toggleVisibility);
+  launcher.addEventListener('click', toggleVisibility);
+
   window.addEventListener('keydown', (e) => {
+    if (e.key === 'F2') {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleVisibility();
+    }
     if (window.xboxMacroActive) {
       if (e.key === 'Escape' || e.key === ' ') {
         e.preventDefault();
