@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Xbox - Ark Auto Join",
+  "version": "1.0",
+  "description": "Automatiza tentativas de login em servidores lotados no Xbox Remote Play e Cloud Gaming.",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.xbox.com/*",
+        "*://xcloud.microsoft.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
